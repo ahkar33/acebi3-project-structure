@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/animsition.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<div class="title">Student Registration System</div>
+				</div>
+				<div class="card-body">
+					<form action="/login" method="POST" class="validate-form">
+						<div class="input-group form-group validate-input"
+							data-validate="Valid email is required: ex@abc.xyz">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input id="userName" type="text" class="form-control"
+								placeholder="username" name="userName">
+
+						</div>
+						<div class="input-group form-group validate-input"
+							data-validate="Password is required">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input id="password" name="password" type="password"
+								class="form-control" placeholder="password">
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Login"
+								class="btn float-right login_btn">
+						</div>
+						<div align="center" th:if="${param.error}">
+							<p style="font-size: 20; color: #FF1C19;">Email or Password
+								invalid, please verify</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+
+</body>
+</html>

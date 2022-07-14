@@ -1,0 +1,30 @@
+/* td.details-control { */
+/*     background: url('../img/Details_open.png') no-repeat top right; */
+/*     cursor: pointer; */
+
+/* } */
+/* tr.shown td.details-control { */
+/*     background: url('../img/Details_close.png') no-repeat top right; */
+/* } */
+.tariffTable {
+	border-style: hidden;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.tariffTable th, td {
+	width: 25%;
+}
+
+.tariffTable th {
+	background-color: #f5f5f5 !important;
+}
+
+.select2-selection__choice {
+	background-color: #f5f5f5 !important;
+	border-color: #f5f5f5 !important;
+}
+
+.select2-selection__choice__remove {
+	color: #000 !important;
+}

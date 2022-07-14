@@ -1,0 +1,99 @@
+/* Made with love by Mutiullah Samim*/
+
+html,body{
+background-color: white;
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 70%;
+align-content: center;
+}
+
+.card{
+height: 200px;
+margin-top: auto;
+margin-bottom: auto;
+width: 420px;
+background-color: rgba(0,0,0,0) !important;
+border: none;
+}
+
+.social_icon span{
+margin-top: 15px;
+font-size: 60px;
+margin-left: 8px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header{
+text-align-last: left;
+background-color: rgba(0,0,0,0) !important;
+}
+
+.card-header .title{
+margin-right: auto;
+color: black;
+font-style: normal;
+font-family: initial;
+font-size: large;
+border: none;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #4272d7;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: white;
+background-color: #4272d7;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}

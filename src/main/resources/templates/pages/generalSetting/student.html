@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/dataTables.bootstrap4.css}" />
+
+</head>
+<body style="padding-right: 0px;">
+	<header th:insert="fragment/navigation.html :: header"></header>
+	<div class="wrapper">
+		<section class="content">
+			<div class="container-fluid">
+
+				<!-- /.col -->
+				<div class="col-12">
+					<div class="card card-primary">
+						<div class="card-header">
+							<div class="row mb-2">
+								<div class="col-sm-6">
+									<h4>Student Managment</h4>
+								</div>
+								<div class="col-sm-6 label-alignment">
+									<a href="student">General Setting>>Student</a>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+
+							<button type="submit" class="btn btn-primary btn-form m-l-15"
+								id="btnAddStuent" name="btnAdd" onclick="showCreateForm(null)">
+								<i class="fas fa-plus"></i> Student
+							</button>
+
+							<br> <br>
+							<table id="student"
+								class="table table-bordered table-sm table-responsive-sm">
+								<thead class="header-datatable">
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th class="col-edit-delete-datatable">Edit</th>
+										<th class="col-edit-delete-datatable">Delete</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+				</div>
+				<!-- /.col -->
+
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+	</div>
+	<!-- DataTables -->
+	<form id="studentForm" name="studentForm">
+		<div class="createForm">
+			<div class="modal fade" id="studentModal" tabindex="-1" role="dialog"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">Add Student</h3>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+							
+							<div class="form-group row">
+								<label for="name"
+									class="col-sm-3 col-form-label label-alignment">Name :</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="name" name="name"
+										value="">
+								</div>
+							</div>
+							
+							
+							<input id="id" name="id" type="hidden" value="" /> <input
+								id="updatedDateTime" name="updatedDateTime" type="hidden"
+								value="" />
+
+
+						</div>
+
+						<div class="card-footer btn-alignment">
+							<button type="button" class="btn btn-primary btn-form"
+								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary btn-form"
+								value="save" id="btnSave" onclick="save()">Save</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="messageForm">
+		<div class="modal fade" id="messageModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title">Information Message!</h3>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group" id="displayMessage"></div>
+					</div>
+					<!-- /.card-body -->
+					<div class="card-footer btn-alignment">
+						<button type="button" class="btn btn-primary btn-form"
+							data-dismiss="modal">OK</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="successForm">
+		<div class="modal fade" id="successModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title">Information Message!</h3>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group" id="messageText"></div>
+					</div>
+					<!-- /.card-body -->
+					<div class="card-footer btn-alignment">
+						<button type="button" class="btn btn-primary btn-form"
+							data-dismiss="modal">OK</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="deleteConfirmForm">
+		<div class="modal fade" id="deleteConfirmModal" tabindex="-1"
+			role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title">Delete Confirmation!</h3>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure want to delete?</p>
+						<input id="id" name="id" type="hidden" value="" />
+
+					</div>
+
+					<div class="card-footer btn-alignment">
+						<button id="close" type="button" class="btn btn-primary btn-form"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary btn-form"
+							onclick="deleteStudent()">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" th:src="@{/js/jquery.dataTables.js}"></script>
+	<script type="text/javascript" th:src="@{/js/dataTables.bootstrap4.js}"></script>
+	<script type="text/javascript" th:src="@{/js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery.validate.js}"></script>
+	<script type="text/javascript" th:src="@{/js/lodash.js}"></script>
+	<script type="text/javascript" th:src="@{/js/util.js}"></script>
+	<script type="text/javascript" th:src="@{/js/generalSetting/student.js}"></script>
+	
+
+</body>
+</html>
